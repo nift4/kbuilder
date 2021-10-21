@@ -26,15 +26,15 @@ if [ "x$HAS_VDSO32" == "xtrue" ]; then
   export CROSS_COMPILE_VDSO32=$(pwd)/${Compiler}-${VDSO_ARCH}/$(eval "echo \${prefix_${VDSO_ARCH}_${Compiler}}")
 fi
 # defconfig will trigger clean build
-if [ "x$CLEAN" == "xfalse" ]; then
+if [ "x$Clean" == "xfalse" ]; then
   export DEFCONFIG=""
 fi
 # build
 cd "${WORKSPACE}/${KERNEL_DIR}"
 [ -d "${MAKE_OUT}" ] || mkdir -p "${MAKE_OUT}"
-[ "x$CLEAN" == "xproper" ] && make "O=${MAKE_OUT}" mrproper
-[ "x$CLEAN" == "xproper" ] && make "O=${MAKE_OUT}" clean
-[ "x$CLEAN" == "xtrue" ] && make "O=${MAKE_OUT}" clean
+[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" mrproper
+[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" clean
+[ "x$Clean" == "xtrue" ] && make "O=${MAKE_OUT}" clean
 [ "x$DEFCONFIG" == "x" ] || make "O=${MAKE_OUT}" "${DEFCONFIG}"
 make "O=${MAKE_OUT}" -j${MAKE_THREADS}
 cd "${KBUILDER_ROOT}"

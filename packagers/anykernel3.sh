@@ -13,7 +13,7 @@ git clone "${AK3_REPO_URL}" --depth 1 -b "${AK3_REPO_BRANCH}" "${WORKSPACE}/anyk
 cd "${WORKSPACE}/anykernel3_tmp"
 cp -r $PKG_OUTDIR/* .
 zip -r9 "${WORKSPACE}/anykernel3_out/${AK3_ZIP_NAME}" * -x .git README.md *placeholder
-if [ "x$AK3_KEEP_OUTDIR" == "xtrue" ]; do
+if [ "x$AK3_KEEP_OUTDIR" == "xtrue" ]; then
   cp -r "$PKG_OUTDIR/*" "${WORKSPACE}/anykernel3_out/"
 fi
 cd - >/dev/null

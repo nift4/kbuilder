@@ -15,6 +15,7 @@ false
 ```
 Copy-paste the following script and adjust the variables:
 ```
+#!/bin/bash
 export KBUILDER_REPO="nift4/kbuilder" # kbuilder repo
 export KBUILDER_BRANCH="master" # kbuilder branch
 export KERNEL_DIR="kernel" # path where kernel sources are put by jenkins

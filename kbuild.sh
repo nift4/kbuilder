@@ -32,15 +32,15 @@ fi
 # build
 cd "${WORKSPACE}/${KERNEL_DIR}"
 [ -d "${MAKE_OUT}" ] || mkdir -p "${MAKE_OUT}"
-[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" mrproper
-[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" clean
-[ "x$Clean" == "xtrue" ] && make "O=${MAKE_OUT}" clean
-[ "x$DEFCONFIG" == "x" ] || make "O=${MAKE_OUT}" "${DEFCONFIG}"
-make "O=${MAKE_OUT}" -j${MAKE_THREADS}
+[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" "${MAKE_PARAMS}" mrproper
+[ "x$Clean" == "xproper" ] && make "O=${MAKE_OUT}" "${MAKE_PARAMS}" clean
+[ "x$Clean" == "xtrue" ] && make "O=${MAKE_OUT}" "${MAKE_PARAMS}" clean
+[ "x$DEFCONFIG" == "x" ] || make "O=${MAKE_OUT}" "${MAKE_PARAMS}" "${DEFCONFIG}"
+make "O=${MAKE_OUT}" "${MAKE_PARAMS}" -j${MAKE_THREADS}
 cd "${KBUILDER_ROOT}"
 export PKG_OUTDIR="${WORKSPACE}/${KERNEL_DIR}/${MAKE_OUT}"
-if [ "x$PACKAGER" != "x" ]; then
+if [ "x$PACKAGERS" != "x" ]; then
   for i in $PACKAGERS; do
     source "packagers/${i}.sh"
-   done
+  done
 fi

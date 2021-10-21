@@ -41,6 +41,6 @@ cd "${KBUILDER_ROOT}"
 export PKG_OUTDIR="${WORKSPACE}/${KERNEL_DIR}/${MAKE_OUT}"
 if [ "x$PACKAGERS" != "x" ]; then
   for i in $PACKAGERS; do
-    source "packagers/${i}.sh"
+    source "${KBUILD_ROOT}/packagers/${i}.sh"
   done
 fi

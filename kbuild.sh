@@ -19,7 +19,7 @@ source "${KBUILDER_ROOT}/compilerdb.sh"
 if [ "x$ARCH" != "x" ]; then
   export CROSS_COMPILE=$(pwd)/${Compiler}-${ARCH}/$(eval "echo \${prefix_${ARCH}_${Compiler}}")
 fi
-if [ "x$HAS_VDSO" == "xtrue" ]; then
+if [ "x$HAS_VDSO32" == "xtrue" ]; then
   if [ "x$ARCH" == "xarm64" ]; then
     export CROSS_COMPILE_ARM32=$(pwd)/${Compiler}-arm/$(eval "echo \${prefix_arm_${Compiler}}")
   fi

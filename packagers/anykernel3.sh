@@ -14,7 +14,7 @@ cd "${WORKSPACE}/anykernel3_tmp"
 cp -r $PKG_OUTDIR/* .
 zip -r9 "${WORKSPACE}/anykernel3_out/${AK3_ZIP_NAME}" * -x .git README.md *placeholder
 if [ "x$AK3_KEEP_OUTDIR" == "xtrue" ]; then
-  cp -r "$PKG_OUTDIR/*" "${WORKSPACE}/anykernel3_out/"
+  cp -r $PKG_OUTDIR/* "${WORKSPACE}/anykernel3_out/"
 fi
 cd - >/dev/null
 export PKG_OUTDIR="${WORKSPACE}/anykernel3_out"

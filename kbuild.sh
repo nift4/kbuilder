@@ -14,7 +14,7 @@ fi
 cd "${WORKSPACE}"
 [ -d "${KERNEL_DIR}" ] || fail 1 "Kernel source directory not found. Did you configure the jenkins git intergration?"
 # set up crosscompiler
-source compilerdb.sh
+source "${KBUILDER_ROOT}/compilerdb.sh"
 if [ "x$ARCH" != "x" ]; then
   export CROSS_COMPILE=$(pwd)/${Compiler}-${ARCH}/$(eval "echo \${prefix_${ARCH}_${Compiler}}")
 fi

@@ -1,4 +1,5 @@
 # entry point
+set -exo pipefail
 function fail {
 ECODE=$1
 shift
